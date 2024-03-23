@@ -1,11 +1,15 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const FoodCategory = ({ data }) => {
+  //console.log(data);
   return (
-    <div className="flex flex-col items-center">
-      <img src={data} className="inline-block w-24 h-auto mr-2" />
-      <p>img</p>
-    </div>
+    <Link>
+      <img
+        src={process.env.REACT_APP_BANNER_IMAGE_URL + data?.imageId}
+        className="inline-block w-36 h-auto mr-2"
+      />
+    </Link>
   );
 };
 

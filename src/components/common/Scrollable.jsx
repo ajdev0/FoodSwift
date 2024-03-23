@@ -57,16 +57,15 @@ const Scrollable = ({ data, WComponent }) => {
 
       <div
         ref={scrollRef}
-        className="flex items-center overflow-x-auto"
+        className="flex items-center overflow-x-auto gap-3 my-10 bg-scroll scroll-smooth "
         style={{
-          scrollBehavior: "smooth",
           scrollSnapType: "x mandatory",
           scrollbarWidth: "20px",
         }}
       >
-        {data.map((data, index) => (
-          <div className="shrink-0">
-            <WComponent data={data} key={index} />
+        {data?.map((data, index) => (
+          <div className="shrink-0" key={index}>
+            <WComponent data={data} />
           </div>
         ))}
       </div>
