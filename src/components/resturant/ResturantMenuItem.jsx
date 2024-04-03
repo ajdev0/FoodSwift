@@ -1,24 +1,32 @@
 import React, { useEffect, useState } from "react";
 import { PiSquareLogoFill } from "react-icons/pi";
 import { useDispatch, useSelector } from "react-redux";
-import { addItem } from "../utils/redux/cartSlice";
-
+import { addItem, removeItem, selectCartItems } from "../utils/redux/cartSlice";
+import logo from "../img/Design.png";
 const ResturantMenuItem = ({ menu }) => {
   const { info } = menu?.card;
   const dispatch = useDispatch();
-  const [cartItems, setCartItems] = useState([]);
+
+  const cartItems = useSelector(selectCartItems);
+
+  const [quantity, setQuantity] = useState(0);
+
+  useEffect(() => {
+    const storedItem = cartItems.find((item) => item.id === info.id);
+    if (storedItem) {
+      setQuantity(storedItem.quantity);
+    }
+  }, []);
 
   const handleAdd = (item) => {
     dispatch(addItem(item));
+    setQuantity(quantity + 1); // Update local state
   };
-  useEffect(() => {
-    const storedCartState = localStorage.getItem("cartData");
-    if (storedCartState) {
-      const parsedCartState = JSON.parse(storedCartState);
-      setCartItems(parsedCartState);
-    }
-  }, []);
-  console.log(cartItems);
+  const handleRemove = (item) => {
+    dispatch(removeItem(item));
+    setQuantity(quantity - 1); // Update local state
+  };
+
   return (
     <>
       {" "}
@@ -41,12 +49,44 @@ const ResturantMenuItem = ({ menu }) => {
         </div>
         <div className="relative">
           <img
-            src={process.env.REACT_APP_IMAGE_URL + info?.imageId}
+            src={
+              info?.imageId !== undefined
+                ? process.env.REACT_APP_IMAGE_URL + info?.imageId
+                : logo
+            }
             alt=""
             className="max-w-48 max-h-44 rounded-lg"
           />
-          {cartItems ? (
-            <button>+</button>
+          {quantity === 0 ? (
+            <button
+              className="absolute bottom-0 left-1/2 transform w-32 shadow-lg -translate-x-1/2 items-center border text-green-600 rounded  text-md font-bold  bg-white py-1 px-4"
+              onClick={() => handleAdd(info)}
+            >
+              Add
+            </button>
+          ) : cartItems.find((item) => item.id == info?.id) ? (
+            <div className="absolute bottom-0 left-1/2 transform w-32 shadow-lg -translate-x-1/2 items-center border text-green-600 rounded  text-md font-bold  bg-white py-1 px-4">
+              <span className=" flex justify-between items-center ">
+                <span
+                  onClick={() => handleRemove(info)}
+                  className="cursor-pointer hover:bg-slate-100 hover:animate-pulse px-2 rounded"
+                >
+                  -
+                </span>
+                <input
+                  readOnly
+                  className="w-1/2 text-center "
+                  value={quantity}
+                  placeholder="0"
+                />
+                <span
+                  className="cursor-pointer hover:bg-slate-100 hover:animate-pulse px-2 rounded "
+                  onClick={() => handleAdd(info)}
+                >
+                  +
+                </span>
+              </span>
+            </div>
           ) : (
             <button
               className="absolute bottom-0 left-1/2 transform w-32 shadow-lg -translate-x-1/2 items-center border text-green-600 rounded  text-md font-bold  bg-white py-1 px-4"

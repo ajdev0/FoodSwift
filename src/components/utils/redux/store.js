@@ -2,7 +2,9 @@ import { configureStore } from "@reduxjs/toolkit";
 
 import cartSlice from "./cartSlice";
 
-const preloadedState = JSON.parse(localStorage.getItem("cartData")) || {}; // Retrieve cart state from localStorage
+const preloadedState = {
+  cart: JSON.parse(localStorage.getItem("cartData")) || { items: [] },
+}; // Retrieve cart state from localStorage
 
 const store = configureStore({
   reducer: {
