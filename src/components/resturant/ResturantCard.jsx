@@ -1,12 +1,12 @@
 import React from "react";
 import { MdStars } from "react-icons/md";
+import { Link } from "react-router-dom";
 
 const ResturantCard = ({ data }) => {
   const { info } = data;
-  //console.log(info);
   return (
-    <>
-      <div className="flex flex-col">
+    <Link to={`resturant/${info?.id}`}>
+      <div className="flex flex-col hover:scale-95 transform-origin-center transition-all duration-100 ease-in cursor-pointer">
         <div className="relative">
           <img
             src={process.env.REACT_APP_IMAGE_URL + info?.cloudinaryImageId}
@@ -38,7 +38,7 @@ const ResturantCard = ({ data }) => {
           <p className="font-light truncate">{info?.cuisines?.join(", ")}</p>
         </div>
       </div>
-    </>
+    </Link>
   );
 };
 

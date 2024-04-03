@@ -6,7 +6,7 @@ import ResturantList from "../components/resturant/ResturantList";
 import useResturantData from "../components/hooks/useResturantData";
 import ShimmerUi from "../components/common/shimmerUi/ShimmerUi";
 
-const Home = () => {
+const Resturants = () => {
   const resturants = useResturantData("top_brands_for_you");
   const resturantList =
     resturants[0]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
@@ -14,12 +14,7 @@ const Home = () => {
   const foodCategories =
     foodCategory[0]?.card?.card?.gridElements?.infoWithStyle?.info;
 
-  if (!resturantList || !foodCategories)
-    return (
-      <>
-        <ShimmerUi />
-      </>
-    );
+  if (!resturantList || !foodCategories) return <ShimmerUi />;
 
   return (
     <div className="container mx-auto py-4">
@@ -46,4 +41,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Resturants;
