@@ -1,4 +1,4 @@
-import { createSlice, nanoid } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 const cartSlice = createSlice({
   name: "cart",
@@ -20,10 +20,11 @@ const cartSlice = createSlice({
       const existingItemIndex = state.items.findIndex(
         (item) => item.id === action.payload.id
       );
+      //console.log(existingItemIndex);
       if (existingItemIndex !== -1) {
         state.items[existingItemIndex].quantity--;
         if (state.items[existingItemIndex].quantity === 0) {
-          localStorage.setItem("cartData", []);
+          state.items.splice(existingItemIndex, 1); // Remove the item
         }
       } else {
         state.items.filter((item) => item.id !== action.payload);

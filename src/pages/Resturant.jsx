@@ -22,7 +22,7 @@ const Resturant = () => {
         "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
     );
 
-  console.log(resturants);
+  //console.log(resturants);
   if (resturants.length === 0) {
     return <MenuShimmerUi />;
   }

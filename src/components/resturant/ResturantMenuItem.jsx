@@ -28,7 +28,7 @@ const ResturantMenuItem = ({ menu }) => {
   };
 
   return (
-    <>
+    <div key={info?.id}>
       {" "}
       <div className="flex justify-between my-4">
         <div className="flex flex-col gap-2">
@@ -98,7 +98,7 @@ const ResturantMenuItem = ({ menu }) => {
         </div>
       </div>
       <div className="border-t border-gray-300 my-6"></div>
-    </>
+    </div>
   );
 };
 

@@ -19,9 +19,9 @@ const ResturantMenu = ({ menuData }) => {
         </span>
       </div>
       <div className={showItem ? "visible" : "hidden"}>
-        {card?.itemCards?.map((item) => (
-          <ResturantMenuItem key={item?.card?.card?.info?.id} menu={item} />
-        ))}
+        {card?.itemCards?.map((item) => {
+          return <ResturantMenuItem key={item?.card?.info?.id} menu={item} />;
+        })}
       </div>
     </>
   );
