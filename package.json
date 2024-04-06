@@ -2,10 +2,10 @@
   "name": "foodswift",
   "version": "1.0.0",
   "description": "Food ordering app",
-  "main": "index.js",
   "scripts": {
-    "start": "parcel public/index.html",
-    "test": "jest"
+    "start": "parcel ",
+    "test": "jest",
+    "build": "parcel build public/index.html"
   },
   "repository": {
     "type": "git",
