@@ -6,7 +6,6 @@ import ResturantMenu from "../components/resturant/ResturantMenu";
 import { useParams } from "react-router-dom";
 import useResturantMenuData from "../components/hooks/useResturantMenuData";
 import MenuShimmerUi from "../components/common/shimmerUi/MenuShimmerUi";
-import ShimmerUi from "../components/common/shimmerUi/ShimmerUi";
 
 const Resturant = () => {
   const { id } = useParams();

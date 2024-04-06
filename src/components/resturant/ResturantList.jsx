@@ -2,7 +2,7 @@ import axios from "axios";
 import React from "react";
 import useResturantData from "../hooks/useResturantData";
 import ResturantCard from "./ResturantCard";
-import CardShimmerUi from "../common/shimmerUi/cardShimmerUi";
+import CardShimmerUi from "../common/shimmerUi/CardShimmerUi";
 
 const ResturantList = () => {
   //const [resturantList, setResturantList] = useState([]);
