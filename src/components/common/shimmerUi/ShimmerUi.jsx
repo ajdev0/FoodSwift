@@ -1,5 +1,5 @@
 import React from "react";
-import CardShimmerUi from "./cardShimmerUi";
+import CardShimmerUi from "./CardShimmerUi";
 
 const ShimmerUi = () => {
   return (
