@@ -80,7 +80,7 @@ const Header = () => {
               onClick={() =>
                 logout({
                   logoutParams: { returnTo: "http://localhost:1234" },
-                  clientId: "7XMl9BFeT560DFtbA3acvGfksFrJDvjN",
+                  clientId: process.env.REACT_APP_AUTH0_CLIENT_ID,
                 })
               }
               className="hover:text-red-400"
