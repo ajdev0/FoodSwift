@@ -11,6 +11,7 @@ const Resturants = () => {
   const resturantList =
     resturants[0]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
   const foodCategory = useResturantData("whats_on_your_mind");
+
   const foodCategories =
     foodCategory[0]?.card?.card?.gridElements?.infoWithStyle?.info;
 

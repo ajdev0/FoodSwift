@@ -3,12 +3,7 @@ import React from "react";
 import useResturantData from "../hooks/useResturantData";
 import ResturantCard from "./ResturantCard";
 import CardShimmerUi from "../common/shimmerUi/cardShimmerUi";
-/**
- * 
-.filter(
-        (card) => card?.card?.card.id === "whats_on_your_mind"
-      )
- */
+
 const ResturantList = () => {
   //const [resturantList, setResturantList] = useState([]);
   const resturants = useResturantData("restaurant_grid_listing");

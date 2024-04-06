@@ -10,6 +10,7 @@ const useResturantData = (txtId) => {
   const resturantList = async () => {
     try {
       const response = await axios.get(process.env.REACT_APP_API);
+
       const filteredData = response?.data?.data?.cards?.filter(
         (card) => card?.card?.card?.id === txtId
       );

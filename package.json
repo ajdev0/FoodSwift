@@ -26,6 +26,7 @@
   },
   "homepage": "https://github.com/ajdev0/FoodSwift#readme",
   "dependencies": {
+    "@auth0/auth0-react": "^2.2.4",
     "@reduxjs/toolkit": "^2.2.3",
     "axios": "^1.6.8",
     "parcel": "^2.12.0",
