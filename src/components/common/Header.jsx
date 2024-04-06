@@ -79,7 +79,7 @@ const Header = () => {
             <Link
               onClick={() =>
                 logout({
-                  logoutParams: { returnTo: "http://localhost:1234" },
+                  logoutParams: { returnTo: "https://foodswift.netlify.app" },
                   clientId: process.env.REACT_APP_AUTH0_CLIENT_ID,
                 })
               }
